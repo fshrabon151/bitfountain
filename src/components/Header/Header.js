@@ -16,6 +16,9 @@ const Header = () => {
   let history = useHistory();
 
   const remove = () => {
+    /**
+     * Removing acces token due to logout and redirectig to home page
+     */
     localStorage.removeItem("token");
     history.push("/");
   };

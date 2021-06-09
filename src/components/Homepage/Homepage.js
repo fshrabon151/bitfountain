@@ -9,10 +9,9 @@ const Homepage = () => {
 
   const [loading, setLoading] = useState(true);
 
-
-/**
- * pagination limit
- */
+  /**
+   * pagination limit
+   */
   const [noOfElements, setNoOfElement] = useState(12);
   const loadMore = () => {
     setNoOfElement(noOfElements + noOfElements);
@@ -22,8 +21,6 @@ const Homepage = () => {
    * slicing for pagination
    */
   const slice = modeltype.slice(0, noOfElements);
-
-
 
   const token = localStorage.getItem("token");
 
@@ -59,9 +56,9 @@ const Homepage = () => {
       })
       .catch((err) => {
         console.error(err);
+        localStorage.removeItem("token");
       });
   }, [token]);
-
 
   /**
    * mapping data to show

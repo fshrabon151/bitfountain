@@ -50,12 +50,13 @@ function SelectedModel() {
       });
   }, []);
 
+
   if (loading) return <Loader />;
   return (
     <>
       <Header />
       <div className="container">
-        <h2 className="text-center my-5">Model Data ({noOfElements})</h2>
+        <h2 className="text-center my-5">Model Data</h2>
         <hr />
         <div className="row">
           {(modeldata == "" && (
