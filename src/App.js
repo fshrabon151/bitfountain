@@ -7,6 +7,10 @@ import Login from "./components/Login/Login";
 function App() {
   return (
     <div className="App">
+      {/**
+       * Creating requred paths
+       */}
+
       <Switch>
         <Route exact path="/" component={Login} />
         <Route exact path="/modeltype" component={Homepage} />

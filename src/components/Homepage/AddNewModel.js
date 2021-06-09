@@ -20,6 +20,9 @@ function AddNewModel() {
   const token = localStorage.getItem("token");
 
   const formSubmit = (e) => {
+    /**
+     * Injecting access token to header
+     */
     axios.interceptors.request.use(
       (config) => {
         config.headers.authorization = `${token}`;
@@ -31,10 +34,18 @@ function AddNewModel() {
     );
     e.preventDefault();
 
+    /**
+     * Sending data to server
+     */
+
     axios
       .post("api/devicemodel", addData)
       .then((response) => {
         console.log(response);
+
+        /**
+         * showing success message
+         */
         if (response.statusText === "Created") {
           Swal.fire({
             position: "top-end",
@@ -48,6 +59,10 @@ function AddNewModel() {
       .catch((err) => {
         console.log(err);
       });
+
+      /**
+       * reseting form value
+       */
 
     setBrandId("");
     setName("");

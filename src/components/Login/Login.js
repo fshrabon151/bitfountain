@@ -23,17 +23,26 @@ const Login = () => {
     axios
       .post("api/login", login)
       .then((response) => {
+        /**
+         * settig a local variable to access the token
+         */
         localStorage.setItem("token", response.data.access_token);
         SetIsLogin(true);
       })
       .catch((err) => {
         console.log(err);
         SetIsLogin(false);
+        /**
+         * showing error message if data is incorrect
+         */
         toast.error("Invalid Email/Password");
       });
   };
 
   return iSLogin ? (
+    /**
+     * redirecting to homepage if login success
+     */
     <Redirect to="/modeltype"></Redirect>
   ) : (
     <>

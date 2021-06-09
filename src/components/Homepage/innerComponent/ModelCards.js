@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 const ModelCards = ({ BrandId, Name, Description, onModelSelect }) => {
   return (
     <div className="col-md-4 col-sm-6 mb-4">
+      {/**
+       * Redirecting through link if a specific device selected
+       */}
       <Link
         style={{ textDecoration: "none" }}
         to={`/modeldata/${BrandId}/${Name}`}

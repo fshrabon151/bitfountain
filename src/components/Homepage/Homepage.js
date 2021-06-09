@@ -3,22 +3,34 @@ import axios from "axios";
 import Loader from "../Header/Loader";
 import Header from "../Header/Header";
 import ModelCards from "./innerComponent/ModelCards";
-import { Redirect } from "react-router";
 
 const Homepage = () => {
   const [modeltype, setModeltype] = useState([]);
 
   const [loading, setLoading] = useState(true);
 
+
+/**
+ * pagination limit
+ */
   const [noOfElements, setNoOfElement] = useState(12);
   const loadMore = () => {
     setNoOfElement(noOfElements + noOfElements);
   };
 
+  /**
+   * slicing for pagination
+   */
   const slice = modeltype.slice(0, noOfElements);
 
+
+
   const token = localStorage.getItem("token");
+
   useEffect(() => {
+    /**
+     * injecting the acces token to header
+     */
     axios.interceptors.request.use(
       (config) => {
         config.headers.authorization = `${token}`;
@@ -29,9 +41,16 @@ const Homepage = () => {
       }
     );
 
+    /**
+     * fetching data from API
+     */
+
     axios
       .get("api/overview/modeltype")
       .then((response) => {
+        /**
+         * storing the datas
+         */
         setModeltype(response.data);
 
         setLoading(false);
@@ -43,11 +62,18 @@ const Homepage = () => {
       });
   }, [token]);
 
+
+  /**
+   * mapping data to show
+   */
+
   const showModels = slice.map((model) => (
     <ModelCards key={model.Id} {...model} />
   ));
 
-
+  /**
+   * Loding animation
+   */
 
   if (loading) return <Loader />;
 

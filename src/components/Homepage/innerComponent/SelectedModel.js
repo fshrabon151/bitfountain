@@ -7,12 +7,20 @@ import Header from "../../Header/Header";
 import { Link } from 'react-router-dom';
 
 function SelectedModel() {
+
+  /**
+   * Taking data from url
+   */
   const params = useParams();
   const brand = params.brand;
   const model = params.model;
 
   const [modeldata, setModelData] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  /**
+   * Pagination limit setting
+   */
 
   const [noOfElements, setNoOfElement] = useState(12);
   const loadMore = () => {
@@ -21,7 +29,13 @@ function SelectedModel() {
 
   const slice = modeldata.slice(0, noOfElements);
 
+
+
   useEffect(() => {
+
+    /**
+     * Fetching data from server
+     */
     axios
       .get(`api/overview/modeldata/${brand}/${model}`)
       .then((response) => {
