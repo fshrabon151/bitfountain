@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { useHistory } from "react-router";
+
 import Header from "../Header/Header";
 
 function AddNewModel() {
@@ -9,8 +9,6 @@ function AddNewModel() {
   const [name, setName] = useState("");
   const [typeID, setTypeID] = useState("");
   const [comment, setComment] = useState(null);
-
-  const history = useHistory();
 
   const addData = {
     BrandId: brandId,

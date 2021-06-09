@@ -3,6 +3,7 @@ import axios from "axios";
 import Loader from "../Header/Loader";
 import Header from "../Header/Header";
 import ModelCards from "./innerComponent/ModelCards";
+import { Redirect } from "react-router";
 
 const Homepage = () => {
   const [modeltype, setModeltype] = useState([]);
@@ -45,6 +46,8 @@ const Homepage = () => {
   const showModels = slice.map((model) => (
     <ModelCards key={model.Id} {...model} />
   ));
+
+
 
   if (loading) return <Loader />;
 
