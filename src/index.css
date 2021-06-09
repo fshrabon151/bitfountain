@@ -38,3 +38,21 @@ body {
     transform: rotate(360deg);
   }
 }
+
+.modelcard {
+  font-weight: 500;
+  transition: 0.3s;
+}
+.modelcard:hover {
+  cursor: pointer;
+  background-color: #74b9ff;
+  color: #fff;
+}
+
+@media screen and (max-width: 575px) {
+  .nav-sm {
+    margin: 5px !important;
+    display: block !important;
+    padding: 5px 8px !important;
+  }
+}

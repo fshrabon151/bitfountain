@@ -34,7 +34,7 @@ const Login = () => {
   };
 
   return iSLogin ? (
-    <Redirect from="/" to="/modeltype"></Redirect>
+    <Redirect to="/modeltype"></Redirect>
   ) : (
     <>
       <div className="container">
@@ -60,7 +60,7 @@ const Login = () => {
             <input
               type="password"
               className="form-control"
-              placeholder="Email"
+              placeholder="Password"
               name="password"
               id="password"
               required

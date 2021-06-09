@@ -38,7 +38,7 @@ const Header = () => {
                   <NavLink
                     exact
                     to={"/modeltype"}
-                    className="nav-link btn text-white ml-2 btn-primary nav-sm"
+                    className="nav-link btn text-white ml-2 btn-primary nav-sm btn-sm"
                   >
                     Home
                   </NavLink>
@@ -48,13 +48,13 @@ const Header = () => {
                   <NavLink
                     exact
                     to={"/devicemodel"}
-                    className="nav-link btn text-white ml-2 btn-primary nav-sm"
+                    className="nav-link btn text-white ml-2 btn-primary nav-sm btn-sm"
                   >
                     Add new model
                   </NavLink>
                 </NavItem>
                 <NavItem
-                  className="nav-link btn text-white ml-2 btn-primary nav-sm"
+                  className="nav-link btn text-white ml-2 btn-primary nav-sm btn-sm"
                   onClick={remove}
                 >
                   Logout
